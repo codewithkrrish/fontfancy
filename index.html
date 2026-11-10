@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FontFancy — Stylish Text Generator</title>
+<meta name="description" content="FontFancy is a free stylish text generator that runs entirely in your browser. Turn plain text into 50+ Unicode styles — bold, script, fraktur, circled, upside down and more — then click to copy. No account, nothing uploaded." />
+<link rel="canonical" href="https://fontfancy.vercel.app/" />
+<meta name="theme-color" content="#0B0B0F" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="FontFancy — Stylish Text Generator" />
+<meta property="og:description" content="50+ stylish Unicode text styles — bold, script, fraktur, circled, upside down and more. Click to copy, free, no account, nothing uploaded." />
+<meta property="og:url" content="https://fontfancy.vercel.app/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="FontFancy — Stylish Text Generator" />
+<meta name="twitter:description" content="50+ stylish Unicode text styles — bold, script, fraktur, circled, upside down and more. Click to copy, free, no account, nothing uploaded." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark" aria-hidden="true">Aa</span> FontFancy</div>
+  <p class="tagline">Turn plain text into stylish Unicode text — no uploads, no account.</p>
+</header>
+
+<main class="wrap">
+  <section class="card" aria-labelledby="input-heading">
+    <h1 id="input-heading">Stylish text generator</h1>
+    <p class="muted">Type or paste your text, then tap any style below to copy it. Everything runs on your device — your text never leaves this page.</p>
+
+    <label class="control-label" for="text-input">Your text</label>
+    <textarea id="text-input" class="text-input" rows="3" placeholder="Type the text you want to style…" autofocus>Hello World</textarea>
+    <p class="muted small"><span id="input-chars">11 characters · 2 words</span></p>
+
+    <div class="pill-row sample-row" id="sample-row" aria-label="Sample texts">
+      <button type="button" class="pill sample-chip" data-sample="Hello World">Hello World</button>
+      <button type="button" class="pill sample-chip" data-sample="Good Morning">Good Morning</button>
+      <button type="button" class="pill sample-chip" data-sample="Your Name Here">Your Name Here</button>
+      <button type="button" class="pill sample-chip" data-sample="Happy Birthday">Happy Birthday</button>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="styles-heading">
+    <h2 id="styles-heading">Styles</h2>
+    <p class="muted small"><span id="styles-count">51 styles</span> · <span id="preview-note">Previews update live as you type.</span></p>
+
+    <label class="control-label" for="search-input">Search styles</label>
+    <input id="search-input" type="text" placeholder="Search by style name — try “script” or “circle”…" autocomplete="off" />
+
+    <div class="pill-row category-row" id="category-row" role="group" aria-label="Style categories">
+      <button type="button" class="pill active" data-category="all">All styles</button>
+      <button type="button" class="pill" data-category="bold">Bold</button>
+      <button type="button" class="pill" data-category="script">Script</button>
+      <button type="button" class="pill" data-category="decorative">Decorative</button>
+      <button type="button" class="pill" data-category="fun">Fun</button>
+      <button type="button" class="pill" data-category="decorations">Decorations</button>
+    </div>
+
+    <div class="control-actions">
+      <button id="copy-all-btn" type="button" class="btn primary">Copy all styles</button>
+      <button id="clear-favourites-btn" type="button" class="btn" hidden>Clear favourites</button>
+    </div>
+    <p id="copy-status" class="muted small" aria-live="polite"></p>
+
+    <div id="favourites-section" hidden>
+      <h3 class="section-subhead">Favourites</h3>
+      <div id="favourites-list" class="style-grid"></div>
+    </div>
+
+    <div id="styles-list" class="style-grid" aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-labelledby="honest-heading">
+    <h2 id="honest-heading">How it works</h2>
+    <ul class="honest-list">
+      <li><strong>These are Unicode look-alike characters, not real fonts.</strong> A “bold” A here is a different character (U+1D400) that merely looks bold. That is why the styled text works anywhere plain text works — bios, usernames, captions, chats — but it is not a font you can install or change the size of.</li>
+      <li><strong>Some apps and devices may not render every character.</strong> Older phones and some apps show a box or a blank for the rarer blocks (Cherokee, runes, braille, double-struck digits). Bold, italic, script and fullwidth render almost everywhere; the exotic ones are worth a quick check in the app you plan to use.</li>
+      <li><strong>A few styles cannot cover every letter.</strong> Unicode has no superscript Q and no subscript B, C, D, F, G, Q, W, Y or Z — those letters stay plain instead of disappearing. Superscript and subscript digits work in full.</li>
+      <li><strong>Your favourites are saved in this browser only.</strong> Star a style and it stays pinned at the top on this device. Your text is never saved, uploaded or sent anywhere — reload the page and the text box is back to the sample.</li>
+      <li><strong>Copy-all copies one line per style</strong> in the form “Name: styled text”, so you can paste the whole list somewhere and pick from it later.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Built by krrish · <a href="https://github.com/codewithkrrish/fontfancy">GitHub</a> · <a href="https://www.instagram.com/krrishx.ai">Instagram</a></p>
+  <p class="muted small">Everything runs in your browser — your text is never uploaded or stored anywhere.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
